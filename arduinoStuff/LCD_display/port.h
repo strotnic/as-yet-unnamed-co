@@ -1,3 +1,11 @@
+/*
+  File Name: port.h
+  Created By: Stephen Trotnic
+  Date: December 2nd, 2018
+  Purpose: Port manipulation for Arduino Uno
+  Released into the public domain.
+*/
+
 #ifndef PORT_H
 #define PORT_H
 

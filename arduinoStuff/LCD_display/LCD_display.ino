@@ -1,3 +1,11 @@
+/*
+  File Name: LCD_display.ino
+  Created By: Stephen Trotnic
+  Date: December 2nd, 2018
+  Purpose: Test application for NewHaven NHD-0420CW-AB3 OLED display
+  Released into the public domain.
+*/
+
 /* LIBRARY INCLUDES */
 #include <Wire.h>
 #include <SPI.h>
@@ -17,15 +25,17 @@ void setup() {
 
   // HARDWARE INITIALIZATION
   portInit();
-  lcd.lcdInit();
+  lcd.init();
 
+  // Test of string output to display
   String output = "hello";
-  lcd.lcdPrintString(lcd.lcd_ddram_lines[4], output);
+  lcd.stringSend(lcd.lcd_ddram_lines[4], output);
 
+  // Test of character output to display
   delay(2000);
-  lcd.lcdByte(0, 0xA0);
-  lcd.lcdByte(1, 'H');
-  lcd.lcdByte(1, 'i');
+  lcd.byteSend(0, 0xA0); //manually change the output address
+  lcd.byteSend(1, 'H');
+  lcd.byteSend(1, 'i');
 }
 
 void loop() {
