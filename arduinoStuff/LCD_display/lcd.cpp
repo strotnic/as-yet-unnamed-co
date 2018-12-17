@@ -10,9 +10,9 @@
 
 void LCD::init() {
   // Initialization routine
-  int8_t init_values[] = {int8_t(0x22 | _lcd_rows), 0x71, 0x5C, int8_t(0x20 | _lcd_rows), 0x08, int8_t(0x22 | _lcd_rows), 0x79, 0xD5, 0x70, 0x78,
-                             int8_t(_lcd_num_rows > 2 ? 0x09 : 0x08), 0x06, 0x72, 0x00, 0x79, 0xDA, 0x10, 0x81, 0x7F, 0xD9,
-                             0xF1, 0xDB, 0x40, 0x78, int8_t(0x20 | _lcd_rows)
+  int8_t init_values[] = {int8_t(0x22 | _rows), 0x71, 0x5C, int8_t(0x20 | _rows), 0x08, int8_t(0x22 | _rows), 0x79, 0xD5, 0x70, 0x78,
+                             int8_t(_num_rows > 2 ? 0x09 : 0x08), 0x06, 0x72, 0x00, 0x79, 0xDA, 0x10, 0x81, 0x7F, 0xD9,
+                             0xF1, 0xDB, 0x40, 0x78, int8_t(0x20 | _rows)
                             };
 
   digitalWrite(RST_n, HIGH);
@@ -23,7 +23,7 @@ void LCD::init() {
     // Check for command/data types in the inialization routine
     ((init_count == 2) || (init_count == 13)) ? byteSend(1, init_values[init_count]) : byteSend(0, init_values[init_count]);
   }
-  // Clear and Turning on the LCD require delays
+  // Clearing and Turning on the LCD require delays
   byteSend(0, CLEAR);
   delay(2);
   byteSend(0, 0x0C); //0x0C = LCD on, 0x0F = LCD/Cursor/Blink on
@@ -37,7 +37,7 @@ void LCD::byteSend(int8_t type, int8_t value) {
   Wire.endTransmission();
 }
 
-void LCD:stringSend(int8_t starting_line, String output) {
+void LCD::stringSend(int8_t starting_line, String output) {
   // Set LCD cursor to the start of the desired output line
   byteSend(0, (SET_DDRAM | starting_line));
 

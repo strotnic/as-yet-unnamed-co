@@ -11,12 +11,12 @@
 
 #include "Arduino.h"
 
-/*#define int8_t char;
-#define int16_t int;
-#define int32_t long;
-#define uint8_t unsigned char;
-#define uint16_t unsigned int;
-#define uint32_t unsigned long;*/
+//#define int8_t char;
+//#define int16_t int;
+//#define int32_t long;
+//#define uint8_t unsigned char;
+//#define uint16_t unsigned int;
+//#define uint32_t unsigned long;
 
 /* DEFAULT PIN DEFINITIONS */
 const uint8_t RX  = 0;
@@ -33,12 +33,14 @@ const uint8_t D10 = 10;
 const uint8_t D11 = 11;
 const uint8_t D12 = 12;
 const uint8_t D13 = 13;
-const int8_t  DIGITAL_PIN_TYPE[16] = {1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1};
-const int8_t  DIGITAL_PIN_INIT_VALUE[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+const int8_t  DIGITAL_PIN_TYPE[14] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+const int8_t  DIGITAL_PIN_INIT_VALUE[14] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0};
 const uint16_t ANALOG_PIN_INIT_VALUE[6] = {0, 0, 0, 0, 0, 0};
 
 /* APPLICATION SPECIFIC PINS */
-const uint8_t RST_n = D6;
+const uint8_t ROTARY_LEFT = D10;
+const uint8_t ROTARY_RIGHT = D11;
+const uint8_t ROTARY_BUTTON = D12;
 
 void portInit();
 
